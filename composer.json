@@ -1,5 +1,5 @@
 {
-    "name": "mthaml/mthaml-bundle",
+    "name": "aricci95/mthaml-bundle",
     "type": "symfony-bundle",
     "description": "This Bundle provides a HAML templating engine",
     "keywords": ["HAML"],
@@ -13,9 +13,9 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "mthaml/mthaml": "~1.3",
-        "symfony/framework-bundle": "~2.3|3.0.*",
-        "symfony/twig-bundle": "~2.3|3.0.*"
+        "aricci95/mthaml": "*",
+        "symfony/framework-bundle": "*",
+        "symfony/twig-bundle": "*"
     },
     "require-dev": {
         "symfony/yaml": "~2.3|3.0.*",
