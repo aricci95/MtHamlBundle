@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mthaml.class">MtHaml\Environment</parameter>
+        <parameter key="templating.engine.mthaml.class">MtHamlBundle\MtHamlEngine</parameter>
+        <parameter key="mthaml.cache_warmer.class">MtHamlBundle\CacheWarmer\TemplateCacheCacheWarmer</parameter>
+        <parameter key="mthaml.twig.extension.class">MtHaml\Support\Twig\Extension</parameter>
+        <parameter key="mthaml.twig.loader.class">MtHaml\Support\Twig\Loader</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="mthaml" class="%mthaml.class%">
+            <argument>twig</argument>
+            <argument type="collection">
+                <argument key="enable_escaper">false</argument>
+            </argument>
+            <argument type="collection"></argument>
+        </service>
+
+        <service id="templating.engine.mthaml" class="%templating.engine.mthaml.class%" public="false">
+            <argument type="service" id="templating.engine.twig" />
+            <argument type="service" id="templating.name_parser" />
+        </service>
+
+        <service id="templating.engine.haml" alias="templating.engine.mthaml" />
+
+        <service id="mthaml.twig.loader" class="%mthaml.twig.loader.class%">
+            <argument type="service" id="mthaml" />
+            <argument></argument>
+        </service>
+
+        <service id="mthaml.cache_warmer" class="%mthaml.cache_warmer.class%" public="false">
+            <tag name="kernel.cache_warmer" />
+            <argument type="service" id="service_container" />
+            <argument type="service" id="templating.finder" />
+        </service>
+
+        <service id="mthaml.twig.extension" class="%mthaml.twig.extension.class%" public="false">
+            <tag name="twig.extension" alias="mthaml" />
+            <argument type="service" id="mthaml" />
+        </service>
+
+    </services>
+</container>

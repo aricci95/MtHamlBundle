@@ -1,0 +1,39 @@
+{
+    "name": "mthaml/mthaml-bundle",
+    "type": "symfony-bundle",
+    "description": "This Bundle provides a HAML templating engine",
+    "keywords": ["HAML"],
+    "homepage": "https://github.com/arnaud-lb/MtHamlBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arnaud Le Blanc",
+            "email": "arnaud.lb@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "mthaml/mthaml": "~1.3",
+        "symfony/framework-bundle": "~2.3|3.0.*",
+        "symfony/twig-bundle": "~2.3|3.0.*"
+    },
+    "require-dev": {
+        "symfony/yaml": "~2.3|3.0.*",
+        "symfony/browser-kit": "~2.3|3.0.*",
+        "symfony/css-selector": "~2.3|3.0.*",
+        "sensio/framework-extra-bundle": "~2.1|~3.0",
+        "symfony/assetic-bundle": "~2.3|3.0.*",
+        "symfony/console": "~2.3|3.0.*",
+        "jms/translation-bundle": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MtHamlBundle\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.5-dev"
+        }
+    }
+}
